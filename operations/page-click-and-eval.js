@@ -1,4 +1,3 @@
-console.log("app has started ...");
 const url = require("url");
 const path = require("path");
 
@@ -19,7 +18,7 @@ async function run() {
   const page = await browser.newPage();
 
   await page.goto(getUriLocalHtmlFile());
-  console.log('browser is opened with local file');
+  console.log("browser is opened with local file");
 
   // ******** now we are on the page   *********
 
@@ -38,4 +37,4 @@ async function run() {
   await browser.close();
 }
 
-run();
+module.exports = { run };
