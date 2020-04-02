@@ -1,0 +1,24 @@
+{
+  "name": "puppeteer-test-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanKr/puppeteer-test-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanKr/puppeteer-test-playground/issues"
+  },
+  "homepage": "https://github.com/NathanKr/puppeteer-test-playground#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "puppeteer": "^2.1.1"
+  }
+}
