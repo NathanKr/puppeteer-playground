@@ -10,6 +10,10 @@ switch(operation){
   require('./operations/page-click-and-eval').run();
   break
 
+  case "page-eval" :
+    require('./operations/page-eval').run();
+  break
+
   default:
     console.error(`unknown operation : ${operation}`);
 }
