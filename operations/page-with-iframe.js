@@ -27,9 +27,10 @@ async function run() {
 
 
   const frameHandle = await page.$("#iframe1");
-  // console.log(frameHandle);
   const frame = await frameHandle.contentFrame();
-  // console.log(frame);
+  frame.childFrames().forEach(childFrame => {
+    console.log(`name of child frame : ${childFrame.name()}`);
+  });
   val = await frame.$eval("body", elem => elem.innerHTML);
   console.log(`------------ body in iframe : ${val}`);
 
