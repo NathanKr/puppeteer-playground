@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
  
 async function run ()  { 
 	// Initiate the browser 
-	const browser = await puppeteer.launch(); 
+	const browser = await puppeteer.launch({ headless: false}); 
  
 	// Create a new page with the default browser context 
 	const page = await browser.newPage(); 
@@ -17,11 +17,6 @@ async function run ()  {
 	//  await page.waitForTimeout(10000); 
     await new Promise(r => setTimeout(r, 10000));
  
-    const fileName = 'image.png';
-	// Take screenshot 
-	await page.screenshot({ path: fileName, fullPage: true }); 
-
-    console.log(`check the screen shot in ${fileName}`);
  
 	// Closes the browser and all of its pages 
 	await browser.close(); 
