@@ -7,6 +7,7 @@ async function run ()  {
 	// Create a new page with the default browser context 
 	const page = await browser.newPage(); 
  
+	
 	// Setting page view 
 	await page.setViewport({ width: 1280, height: 720 }); 
  
@@ -17,6 +18,11 @@ async function run ()  {
 	//  await page.waitForTimeout(10000); 
     await new Promise(r => setTimeout(r, 10000));
  
+    const fileName = 'image.png';
+	// Take screenshot 
+	await page.screenshot({ path: fileName, fullPage: true }); 
+
+    console.log(`check the screen shot in ${fileName}`);
  
 	// Closes the browser and all of its pages 
 	await browser.close(); 
