@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/NathanKr/puppeteer-playground#readme",
   "dependencies": {
-    "puppeteer": "^2.1.1"
+    "puppeteer": "^19.11.1"
   }
 }
