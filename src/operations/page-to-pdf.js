@@ -5,7 +5,7 @@ async function run() {
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
   await page.goto(
-    "https://9c9b-2a06-c701-4702-9300-7943-6979-ba22-fe03.ngrok-free.app/posts"
+    "https://f9ea-147-235-218-142.ngrok-free.app/posts"
   );
   // await page.goto("http://example.com/");
 
