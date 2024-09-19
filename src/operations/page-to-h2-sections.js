@@ -1,10 +1,11 @@
 const puppeteer = require("puppeteer");
 
+const URL = "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024";
+// const URL = "https://nathankrasney.com/posts/load-image-faster-with-webp";
+
 async function run() {
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
-  const URL =
-    "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024";
   await page.goto(URL);
 
   const sections = await page.evaluate(() => {

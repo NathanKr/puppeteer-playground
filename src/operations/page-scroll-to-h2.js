@@ -8,9 +8,12 @@ const path = require("path");
 
 // const URL = "https://vercel.com/guides/handling-node-request-body";
 // const URL ="https://ai.meta.com/blog/meta-llama-3-1"; // not working because dont have h2
-const URL =
-  "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024";
+ const URL =
+   "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024";
 
+  // const URL = "https://nathankrasney.com/posts/load-image-faster-with-webp";
+
+  
 async function run() {
   deleteDirectoryContents(getOutputDirPath());
 
