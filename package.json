@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/NathanKr/puppeteer-playground#readme",
   "dependencies": {
-    "puppeteer": "^19.11.1",
+    "puppeteer": "^22.11.2",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
