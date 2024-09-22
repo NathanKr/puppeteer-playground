@@ -1,4 +1,6 @@
+import path from "path";
 import puppeteer from "puppeteer";
+import {getOutputDirPath} from '../utils'
 
 const pngFile = "example.png";
 
@@ -8,8 +10,12 @@ export async function run() {
   await page.goto("https://example.com");
   // await page.goto("https://www.411.com/");
 
-  await page.screenshot({ path: pngFile });
-  console.log(`Screenshot is written to file: ${pngFile}`);
+  const filePath = path.resolve(getOutputDirPath(), pngFile);
+
+  await page.screenshot({ path: filePath });
+  console.log(`Screenshot is written to file: ${filePath}`);
 
   await browser.close();
 }
+
+
