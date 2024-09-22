@@ -1,6 +1,9 @@
-const path = require("path");
+const path = require('path');
 const fs = require('fs')
 
+function timeStamp() {
+  return (new Date()).getTime()
+}
 
 function getOperationUrl(operation) {
   return `./operations/${operation}`;
@@ -38,4 +41,5 @@ module.exports = {
   getOutputDirPath,
   pauseMs,
   deleteDirectoryContents,
+  timeStamp
 };

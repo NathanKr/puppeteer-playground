@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
+const { timeStamp, getOutputDirPath } = require("../utils");
+const path = require("path");
 
 async function run() {
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   // Set your HTML content directly
@@ -11,9 +13,6 @@ async function run() {
       <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"
-      integrity="sha512-AVoZ71dJLtHRlsgWwujPT1hk2zxtFWsPlpTPCc/1g0WgpbmlzkqlDFduAvnOV4JJWKUquPc1ZyMc5eq4fRnKOQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     </head>
     <body>
@@ -53,9 +52,6 @@ async function run() {
 </pre>
 <script
       src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"
-      integrity="sha512-BNc7saQYlxCL10lykUYhFBcnzdKMnjx5fp5s5wPucDyZ7rKNwCoqJh1GwEAIhuePEK4WM9askJBRsu7ma0Rzvg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     ></script>
     <script>hljs.highlightAll();</script>
     </body>
@@ -63,16 +59,16 @@ async function run() {
   `;
 
   await page.setContent(htmlContent);
+  const fileName = `highlighted_page_${timeStamp()}.png`;
+  const filePath = path.resolve(getOutputDirPath(), fileName);
 
-  const fileNmae = "highlighted_page.pdf";
-  // Generate the PDF
-  await page.pdf({
-    path: fileNmae,
-    format: "A4",
-    printBackground: true,
-  });
+  try {
+    await page.screenshot({ path: filePath, fullPage: true });
+    console.log(`Image created: ${filePath}`);
+  } catch (error) {
+    console.error("Error creating image:", error);
+  }
 
-  console.log(`pdf with code highlight is created : ${fileNmae}`);
 
   await browser.close();
 }
