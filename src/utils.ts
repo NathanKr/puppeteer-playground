@@ -1,23 +1,23 @@
-const path = require('path');
-const fs = require('fs')
+import path from "path";
+import fs from "fs";
 
-function timeStamp() {
+export function timeStamp() : number{
   return (new Date()).getTime()
 }
 
-function getOperationUrl(operation) {
+export function getOperationUrl(operation : string) : string {
   return `./operations/${operation}`;
 }
 
-function getOutputDirPath() {
+export function getOutputDirPath() : string{
   return path.join(__dirname, "..", "output");
 }
 
-function pauseMs(ms) {
+export function pauseMs(ms : number) : Promise<unknown>{
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function deleteDirectoryContents(directoryPath) {
+export function deleteDirectoryContents(directoryPath : string) : void {
   try {
     const files = fs.readdirSync(directoryPath);
     for (const file of files) {
@@ -36,10 +36,4 @@ function deleteDirectoryContents(directoryPath) {
   }
 }
 
-module.exports = {
-  getOperationUrl,
-  getOutputDirPath,
-  pauseMs,
-  deleteDirectoryContents,
-  timeStamp
-};
+

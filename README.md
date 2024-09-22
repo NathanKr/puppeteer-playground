@@ -2,8 +2,16 @@
 this tools is powerfull check <a href="https://github.com/puppeteer/puppeteer">here</a>
 
 
-<h2>Setup</h2>
-<ol>
-<li>npm i</li>
-<li>node index operation_name e.g. node src/index.js detect-bot</li>
-</ol>
+<h2>Installation</h2>
+
+```
+npm i
+```
+
+<h2>Usage</h2>
+run operation page-with-code-highlight
+
+```
+npm run dev -- page-with-code-highlight
+```
+

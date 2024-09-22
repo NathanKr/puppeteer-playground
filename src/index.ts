@@ -1,5 +1,5 @@
 console.log("app has started ...");
-const {getOperationUrl} = require('./utils')
+import {getOperationUrl} from './utils'
 
 const operation = process.argv[2]; // e.g. page-to-image
 
