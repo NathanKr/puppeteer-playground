@@ -2,6 +2,7 @@ import puppeteer from "puppeteer";
 import { getOutputDirPath, timeStamp } from "../utils";
 import path from "path";
 
+
 export async function run() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();

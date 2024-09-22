@@ -1,12 +1,40 @@
+
+import { getOperations, runOperation } from "./utils";
+import readline from "readline";
+
+
 console.log("app has started ...");
-import { getOperationUrl } from "./utils";
 
-const operation = process.argv[2]; // e.g. page-to-image
+async function main() {
+  const operations = await getOperations();
 
-import(getOperationUrl(operation))
-  .then((module) => {
-    module.run();
-  })
-  .catch((err) => {
-    console.error(`Failed to load module: ${err}`);
+  console.log("Available operations:");
+  operations.forEach((operation, index) => {
+    console.log(`${index}: ${operation}`);
   });
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  rl.question("Choose an operation by index: ", async (index) => {
+    const operationIndex = parseInt(index, 10);
+
+    if (
+      isNaN(operationIndex) ||
+      operationIndex < 0 ||
+      operationIndex >= operations.length
+    ) {
+      console.error("Invalid index");
+      rl.close();
+      process.exit(1);
+    }
+
+    const operation = operations[operationIndex];
+    await runOperation(operation);
+    rl.close();
+  });
+}
+
+main();

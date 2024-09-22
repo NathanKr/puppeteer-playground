@@ -9,6 +9,8 @@ export function getOperationUrl(operation : string) : string {
   return `./operations/${operation}`;
 }
 
+
+
 export function getOutputDirPath() : string{
   return path.join(__dirname, "..", "output");
 }
@@ -37,3 +39,29 @@ export function deleteDirectoryContents(directoryPath : string) : void {
 }
 
 
+const operationsDir = path.resolve('.', 'src', 'operations');
+
+export async function getOperations(): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    fs.readdir(operationsDir, (err, files) => {
+      if (err) {
+        reject(`Failed to read directory: ${err}`);
+      } else {
+        const operations = files
+          .filter(file => file.endsWith('.ts'))
+          .map(file => path.basename(file, '.ts'));
+        resolve(operations);
+      }
+    });
+  });
+}
+
+export async function runOperation(operation: string) {
+  try {
+    const url = getOperationUrl(operation)
+    const module = await import(url);
+    module.run();
+  } catch (err) {
+    console.error(`Failed to load module: ${err}`);
+  }
+}
