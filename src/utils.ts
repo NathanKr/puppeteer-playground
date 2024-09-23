@@ -1,30 +1,30 @@
 import path from "path";
 import fs from "fs";
-import { README_WITH_IMG_PROBLEM } from "./constants";
+import { README_WITH_IMG } from "./constants";
 
-export function timeStamp() : number{
-  return (new Date()).getTime()
+export function timeStamp(): number {
+  return new Date().getTime();
 }
 
-export const mdFilePath = path.join(getDataDirPath(),`${README_WITH_IMG_PROBLEM}.md`)
+export const mdFilePath = path.join(getDataDirPath(), `${README_WITH_IMG}.md`);
 
-export function getOperationUrl(operation : string) : string {
+export function getOperationUrl(operation: string): string {
   return `./operations/${operation}`;
 }
 
-export function getDataDirPath() : string{
-  return path.resolve( ".", "data");
+export function getDataDirPath(): string {
+  return path.resolve(".", "data");
 }
 
-export function getOutputDirPath() : string{
-  return path.resolve( ".", "output");
+export function getOutputDirPath(): string {
+  return path.resolve(".", "output");
 }
 
-export function pauseMs(ms : number) : Promise<unknown>{
+export function pauseMs(ms: number): Promise<unknown> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function deleteDirectoryContents(directoryPath : string) : void {
+export function deleteDirectoryContents(directoryPath: string): void {
   try {
     const files = fs.readdirSync(directoryPath);
     for (const file of files) {
@@ -43,8 +43,7 @@ export function deleteDirectoryContents(directoryPath : string) : void {
   }
 }
 
-
-const operationsDir = path.resolve('.', 'src', 'operations');
+const operationsDir = path.resolve(".", "src", "operations");
 
 export async function getOperations(): Promise<string[]> {
   return new Promise((resolve, reject) => {
@@ -53,8 +52,8 @@ export async function getOperations(): Promise<string[]> {
         reject(`Failed to read directory: ${err}`);
       } else {
         const operations = files
-          .filter(file => file.endsWith('.ts'))
-          .map(file => path.basename(file, '.ts'));
+          .filter((file) => file.endsWith(".ts"))
+          .map((file) => path.basename(file, ".ts"));
         resolve(operations);
       }
     });
@@ -63,7 +62,7 @@ export async function getOperations(): Promise<string[]> {
 
 export async function runOperation(operation: string) {
   try {
-    const url = getOperationUrl(operation)
+    const url = getOperationUrl(operation);
     const module = await import(url);
     module.run();
   } catch (err) {

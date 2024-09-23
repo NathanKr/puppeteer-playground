@@ -1,1 +1,1 @@
-export const README_WITH_IMG_PROBLEM = 'readme-with-img-problem';
+export const README_WITH_IMG = "readme-with-img";
