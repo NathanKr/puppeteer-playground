@@ -1,18 +1,23 @@
 import path from "path";
 import fs from "fs";
+import { README_WITH_IMG_PROBLEM } from "./constants";
 
 export function timeStamp() : number{
   return (new Date()).getTime()
 }
 
+export const mdFilePath = path.join(getDataDirPath(),`${README_WITH_IMG_PROBLEM}.md`)
+
 export function getOperationUrl(operation : string) : string {
   return `./operations/${operation}`;
 }
 
-
+export function getDataDirPath() : string{
+  return path.resolve( ".", "data");
+}
 
 export function getOutputDirPath() : string{
-  return path.join(__dirname, "..", "output");
+  return path.resolve( ".", "output");
 }
 
 export function pauseMs(ms : number) : Promise<unknown>{

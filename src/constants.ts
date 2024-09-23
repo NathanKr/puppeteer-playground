@@ -1,0 +1,1 @@
+export const README_WITH_IMG_PROBLEM = 'readme-with-img-problem';
