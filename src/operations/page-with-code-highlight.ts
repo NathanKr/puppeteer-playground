@@ -2,7 +2,6 @@ import puppeteer from "puppeteer";
 import { getOutputDirPath, timeStamp } from "../utils";
 import path from "path";
 
-
 export async function run() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -13,8 +12,7 @@ export async function run() {
     <head>
       <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs.min.css"
-    />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark.min.css">    />
     </head>
     <body>
       <pre><code class="language-html">
@@ -70,7 +68,5 @@ export async function run() {
     console.error("Error creating image:", error);
   }
 
-
   await browser.close();
 }
-

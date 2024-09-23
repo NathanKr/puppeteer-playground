@@ -15,7 +15,7 @@ export async function run() {
   const browser = await puppeteer.launch({ headless: true }); // Use true, false, or "shell"
   const page = await browser.newPage();
   const htmlContent = await marked.parse(markdown);
-
+ 
   // Read the CSS file
   const cssPath = path.join(getDataDirPath(), "markdown-file-styles.css");
   const cssContent = fs.readFileSync(cssPath, "utf8");

@@ -1,7 +1,7 @@
 
 import { getOperations, runOperation } from "./utils";
 import readline from "readline";
-
+     
 
 console.log("app has started ...");
 

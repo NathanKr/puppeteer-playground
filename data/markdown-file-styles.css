@@ -1,40 +1,70 @@
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 1.5rem;
-  font-size: 18px;
-}
 
-.container {
-    max-width: 768px;
-    margin: auto;
-    overflow: auto;
-    padding: 0 10px;
-    color: black;
-  }
+    /* Default light mode styles */
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 1.5rem;
+      font-size: 18px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
 
-  .container p {
-    margin: 15px 0;
-    line-height: 1.8;
-  }
-  
-  .container img {
-    width: 100%;
-    border-radius: 10px;
-    margin: 0.5rem 0;
-    border : 5px solid blue;
-  }
-  
-  
-  /* used for code in post */
-  .container pre {
-    display: inline-block;
-    overflow-x: auto;
-    padding: 0.5rem;
-    background-color: black;
-    border-radius: 5px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    text-align: left;
-    max-width: 100%;
-    border: 5px solid lightblue;
-  }
+    .container {
+      max-width: 768px;
+      margin: auto;
+      overflow: auto;
+      padding: 0 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .container p {
+      margin: 15px 0;
+      line-height: 1.8;
+    }
+
+    .container img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 0.5rem 0;
+      border: 5px solid #007BFF;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .container pre {
+      display: inline-block;
+      overflow-x: auto;
+      padding: 0.5rem;
+      background-color: #333;
+      color: #f8f8f2;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: left;
+      max-width: 100%;
+      border: 5px solid #00BFFF;
+    }
+
+    /* Dark mode styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .container {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .container img {
+        border: 5px solid #1e90ff;
+      }
+
+      .container pre {
+        background-color: #333;
+        color: #f8f8f2;
+        border: 5px solid #00BFFF;
+      }
+    }
