@@ -1,11 +1,11 @@
 
 import { getOperations, runOperation } from "./utils";
 import readline from "readline";
-     
+       
 
 console.log("app has started ...");
-
-async function main() {
+ 
+async function main() { 
   const operations = await getOperations();
 
   console.log("Available operations:");

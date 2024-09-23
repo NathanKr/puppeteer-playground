@@ -1,70 +1,80 @@
+/* Default light mode styles */
+body {
+  font-family: 'Inter', sans-serif; /* Modern font choice */
+  margin: 0;
+  font-size: 18px;
+  background-color: #F5F6FA; /* Lighter, cleaner background */
+  color: #333333; /* Darker text for better contrast */
+  line-height: 1.5;
+}
 
-    /* Default light mode styles */
-    body {
-      font-family: 'Lato', sans-serif;
-      margin: 1.5rem;
-      font-size: 18px;
-      background-color: #f4f4f9;
-      color: #333;
-    }
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #FFFFFF, #E8E9F0); /* Subtler gradient for a more modern feel */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
 
-    .container {
-      max-width: 768px;
-      margin: auto;
-      overflow: auto;
-      padding: 0 10px;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
+/* Default link styles */
+.container a {
+  color: #007BFF; /* Vibrant blue for links */
+  text-decoration: none;
+  font-weight: bold; /* Slightly bolder for emphasis */
+}
 
-    .container p {
-      margin: 15px 0;
-      line-height: 1.8;
-    }
+.container p {
+  margin: 15px 0;
+  line-height: 1.8;
+}
 
-    .container img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 0.5rem 0;
-      border: 5px solid #007BFF;
-      padding: 5px;
-      box-sizing: border-box;
-    }
+.container img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 1rem 0;
+  border: 3px solid #007BFF;
+  padding: 5px;
+  box-sizing: border-box;
+}
 
-    .container pre {
-      display: inline-block;
-      overflow-x: auto;
-      padding: 0.5rem;
-      background-color: #333;
-      color: #f8f8f2;
-      border-radius: 5px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      text-align: left;
-      max-width: 100%;
-      border: 5px solid #00BFFF;
-    }
+.container pre {
+  display: block;
+  overflow-x: auto;
+  padding: 15px;
+  background: linear-gradient(135deg, #F0F0F0, #E0E0E0); /* Subtler gradient for code block */
+  color: #333333;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  max-width: 100%;
+  border: 3px solid #00BFFF;
+}
 
-    /* Dark mode styles */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181a1b;
+    color: #e0e0e0;
+  }
 
-      .container {
-        background-color: #1e1e1e;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      }
+  .container {
+    background: linear-gradient(135deg, #1F2023, #2B2D31); /* Darker gradient */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 
-      .container img {
-        border: 5px solid #1e90ff;
-      }
+  .container img {
+    border: 3px solid #1e90ff;
+  }
 
-      .container pre {
-        background-color: #333;
-        color: #f8f8f2;
-        border: 5px solid #00BFFF;
-      }
-    }
+  .container a {
+    color: #4ca3ff; /* Softer blue for dark mode */
+  }
+
+  .container pre {
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a); /* Darker gradient for code block */
+    color: #f8f8f2;
+    border: 3px solid #00BFFF;
+  }
+}

@@ -16,7 +16,7 @@ export async function run() {
   const page = await browser.newPage();
   const htmlContent = await marked.parse(markdown);
  
-  // Read the CSS file
+  // Read the CSS file 
   const cssPath = path.join(getDataDirPath(), "markdown-file-styles.css");
   const cssContent = fs.readFileSync(cssPath, "utf8");
 
@@ -24,8 +24,7 @@ export async function run() {
   const content = `
     <html>
       <head>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
+        <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
         <style>${cssContent}</style>
         <link
       rel="stylesheet"
