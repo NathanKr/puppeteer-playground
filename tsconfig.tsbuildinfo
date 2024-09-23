@@ -1,1 +1,17 @@
-{"root":["./src/index.ts","./src/utils.ts","./src/operations/bot-was-detect.ts","./src/operations/bot-was-detected-with-user-agent.ts","./src/operations/bot-was-not-detected-using-stealth.ts","./src/operations/page-click-and-eval.ts","./src/operations/page-eval.ts","./src/operations/page-scroll-to-h2.ts","./src/operations/page-to-h2-sections.ts","./src/operations/page-to-image.ts","./src/operations/page-to-pdf.ts","./src/operations/page-with-code-highlight.ts","./src/operations/page-with-iframe.ts"],"version":"5.6.2"}
+{
+  "root": [
+    "./src/index.ts",
+    "./src/utils.ts",
+    "./src/operations/bot-was-detect.ts",
+    "./src/operations/bot-was-detected-with-user-agent.ts",
+    "./src/operations/bot-was-not-detected-using-stealth.ts",
+    "./src/operations/page-click-and-eval.ts",
+    "./src/operations/page-eval.ts",
+    "./src/operations/page-scroll-to-h2.ts",
+    "./src/operations/page-to-h2-sections.ts",
+    "./src/operations/page-to-image.ts",
+    "./src/operations/page-with-code-highlight.ts",
+    "./src/operations/page-with-iframe.ts"
+  ],
+  "version": "5.6.2"
+}

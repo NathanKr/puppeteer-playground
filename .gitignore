@@ -1,3 +1,6 @@
-node_modules
-output
-dist
+node_modules/
+output/
+dist/
+
+# Ignore TypeScript build info file
+tsconfig.tsbuildinfo
