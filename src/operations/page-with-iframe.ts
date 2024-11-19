@@ -1,23 +1,11 @@
 import puppeteer from "puppeteer";
-import url from "url";
-import path from "path";
-import { getDataDirPath } from "../utils";
-
-const getUriLocalHtmlFile = (): string => {
-  const fullpathIndexHtml = path.join(getDataDirPath(), "index-with-iframe.html");
-  // --- following is required only because the file is local
-  // --- if your page is accessed by browser you can use http and not file
-  const uriLocalHtmlFile = url.pathToFileURL(fullpathIndexHtml).href;
-  console.log(uriLocalHtmlFile);
-
-  return uriLocalHtmlFile;
-};
+import { getUriLocalHtmlFileInDataDir } from "../utils";
 
 export async function run() {
   const browser = await puppeteer.launch({ headless: true, slowMo: 100 });
   const page = await browser.newPage();
-
-  await page.goto(getUriLocalHtmlFile());
+  const url = getUriLocalHtmlFileInDataDir("index-with-iframe.html")
+  await page.goto(url);
   console.log("browser is opened with local file");
 
   // ******** now we are on the page   *********

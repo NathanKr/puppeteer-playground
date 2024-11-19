@@ -1,23 +1,33 @@
-import path from "path";
+import { basename, join, resolve } from "path";
 import fs from "fs";
 import { README_WITH_IMG } from "./constants";
+import { pathToFileURL } from "url";
+
+export const getUriLocalHtmlFileInDataDir = (htmlFile : string): string => {
+  const fullpathIndexHtml = join(getDataDirPath(), htmlFile);
+  // --- following is required only because the file is local
+  // --- if your page is accessed by browser you can use http and not file
+  const uriLocalHtmlFile = pathToFileURL(fullpathIndexHtml).href;
+
+  return uriLocalHtmlFile;
+};
 
 export function timeStamp(): number {
   return new Date().getTime();
 }
 
-export const mdFilePath = path.join(getDataDirPath(), `${README_WITH_IMG}.md`);
+export const mdFilePath = join(getDataDirPath(), `${README_WITH_IMG}.md`);
 
 export function getOperationUrl(operation: string): string {
   return `./operations/${operation}`;
 }
 
 export function getDataDirPath(): string {
-  return path.resolve(".", "data");
+  return resolve(".", "data");
 }
 
 export function getOutputDirPath(): string {
-  return path.resolve(".", "output");
+  return resolve(".", "output");
 }
 
 export function pauseMs(ms: number): Promise<unknown> {
@@ -28,7 +38,7 @@ export function deleteDirectoryContents(directoryPath: string): void {
   try {
     const files = fs.readdirSync(directoryPath);
     for (const file of files) {
-      const filePath = path.join(directoryPath, file);
+      const filePath = join(directoryPath, file);
       if (fs.lstatSync(filePath).isDirectory()) {
         fs.rmdirSync(filePath, { recursive: true });
       } else {
@@ -43,7 +53,7 @@ export function deleteDirectoryContents(directoryPath: string): void {
   }
 }
 
-const operationsDir = path.resolve(".", "src", "operations");
+const operationsDir = resolve(".", "src", "operations");
 
 export async function getOperations(): Promise<string[]> {
   return new Promise((resolve, reject) => {
@@ -53,7 +63,7 @@ export async function getOperations(): Promise<string[]> {
       } else {
         const operations = files
           .filter((file) => file.endsWith(".ts"))
-          .map((file) => path.basename(file, ".ts"));
+          .map((file) => basename(file, ".ts"));
         resolve(operations);
       }
     });
