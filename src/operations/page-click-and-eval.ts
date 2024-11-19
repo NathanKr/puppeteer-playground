@@ -1,9 +1,10 @@
 import { pathToFileURL } from 'url';
 import { join } from 'path';
 import puppeteer from 'puppeteer';
+import { getDataDirPath } from '../utils';
 
 const getUriLocalHtmlFile = (): string => {
-    const fullpathIndexHtml = join(__dirname, 'data', 'index.html');
+    const fullpathIndexHtml = join(getDataDirPath(), 'index.html');
     // --- following is required only because the file is local
     // --- if your page is accessed by browser you can use http and not file
     const uriLocalHtmlFile = pathToFileURL(fullpathIndexHtml).href;
