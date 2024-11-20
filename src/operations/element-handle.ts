@@ -15,7 +15,7 @@ export async function run(): Promise<void> {
     const id = await elementHandle.evaluate((el) => el.id);
     console.log(`id : ${id}`);
     const rect = await elementHandle.evaluate((el) => {
-      // CAUTION : return rect will return empty object for some reason
+      // CAUTION : return rect will return empty DOM object for some reason
       const rect = el.getBoundingClientRect(); 
       return {top : rect.top , height : rect.height} // this is ok
     } );   
