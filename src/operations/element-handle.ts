@@ -6,7 +6,8 @@ export async function run(): Promise<void> {
   const page = await browser.newPage();
   const url = getUriLocalHtmlFileInDataDir("example.html");
   await page.goto(url);
-  // Get ElementHandles for all elements
+  /* Get ElementHandles for all elements
+   i am using page.$$ because you can not return Element[] from page.evaluate */
   const allElementHandles: ElementHandle<Element>[] = await page.$$("body *");
   console.log(`Found ${allElementHandles.length} elements in body`);
   // Example: Log the id of each element
