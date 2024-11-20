@@ -14,6 +14,13 @@ export async function run(): Promise<void> {
   for (const elementHandle of allElementHandles) {
     const id = await elementHandle.evaluate((el) => el.id);
     console.log(`id : ${id}`);
+    const rect = await elementHandle.evaluate((el) => {
+      // CAUTION : return rect will return empty object for some reason
+      const rect = el.getBoundingClientRect(); 
+      return {top : rect.top , height : rect.height} // this is ok
+    } );   
+    console.log(rect);
+     
   }
   await browser.close();
 }
