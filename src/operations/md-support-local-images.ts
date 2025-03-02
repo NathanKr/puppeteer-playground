@@ -30,30 +30,33 @@ export async function run() {
   const tempHtmlPath = resolve('.', `${fileName}-temp.html`);
   writeFileSync(tempHtmlPath, htmlContent);
 
-  (async () => {
-    // Launch a browser instance
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-
-    // Load the HTML file
-    await page.goto(`file://${tempHtmlPath}`);
-
-    // Check if the image is loaded
-    const isImageLoaded = await page.evaluate(() => {
-      const img = document.querySelector("img");
-      return img && img.complete && img.naturalHeight !== 0;
-    });
-
-    if (isImageLoaded) {
-      console.log("Image is loaded.");
-    } else {
-      console.log("Image is not loaded.");
-    }
-
-    // Close the browser
-    await browser.close();
+  try {
+    (async () => {
+      // Launch a browser instance
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+  
+      // Load the HTML file
+      await page.goto(`file://${tempHtmlPath}`);
+  
+      // Check if the image is loaded
+      const isImageLoaded = await page.evaluate(() => {
+        const img = document.querySelector("img");
+        return img && img.complete && img.naturalHeight !== 0;
+      });
+  
+      if (isImageLoaded) {
+        console.log("Image is loaded.");
+      } else {
+        console.log("Image is not loaded.");
+      }
+  
+      // Close the browser
+      await browser.close();
+    })();
+  } finally  {
     unlinkSync(tempHtmlPath);
     console.log(`Temporary HTML file ${tempHtmlPath} deleted`);
-  })();
+  }
 }
 
