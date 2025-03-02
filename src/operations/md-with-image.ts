@@ -24,6 +24,8 @@ export async function run() {
   `;
 
   // Save the HTML to a temporary file
+  /* This is crucial for using local image files because it provide the html
+   file by which relative path can be accessed */
   const tempHtmlPath = resolve('.', 'temp.html');
   writeFileSync(tempHtmlPath, htmlContent);
 
